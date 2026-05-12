@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FE.VER Dance Team</title>
-    <style>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=DM+Sans:wght@400;500&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -56,6 +55,13 @@
 .home-content{position:relative;z-index:3;padding:60px 40px;}
 .home-tagline{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--o2);border:1px solid rgba(255,149,0,0.4);padding:4px 14px;margin-bottom:28px;border-radius:2px;}
 .home-logo{height:100px;width:auto;margin:0 auto 14px;filter:drop-shadow(0 0 28px rgba(155,79,232,0.8)) drop-shadow(0 0 56px rgba(255,107,26,0.5));display:block;}
+.home-logo {
+    height: 100px;
+    width: auto;
+    max-width: 80%; /* Thêm dòng này để logo không bao giờ to quá 80% chiều ngang màn hình */
+    margin: 0 auto 14px;
+    display: block;
+}
 .home-teamname{font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;letter-spacing:8px;text-transform:uppercase;background:linear-gradient(90deg,var(--p2),var(--o1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;}
 .home-slogan{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--o2);margin-bottom:14px;opacity:0.9;}
 .home-sub{font-size:15px;line-height:1.7;color:rgba(245,238,255,0.55);max-width:460px;margin:0 auto 40px;}
