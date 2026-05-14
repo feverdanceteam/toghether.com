@@ -526,7 +526,7 @@ textarea.f-inp{resize:vertical;min-height:80px;}
     </div>
   </div>
 </div>
-
+    
 <div class="footer">
   <img class="footer-logo" src="dvg.png" alt="FE.VER">
   <div class="footer-right">
@@ -534,9 +534,6 @@ textarea.f-inp{resize:vertical;min-height:80px;}
     <div class="footer-copy">Website by @jackytoan_247 — JKT STUDIO</div>
   </div>
 </div>
-
-</div>
-
 <script>
 const PAGES = ['home','about','members','news','contact'];
 function showSec(name){
@@ -563,9 +560,8 @@ function handleSend(btn){
             btn.textContent='GỬI TIN NHẮN →';
             btn.style.background='linear-gradient(90deg,var(--p1),var(--o1))';
         }, 2500);
-    } // <--- Phải có dấu này để kết thúc hàm gửi tin
-
-    function switchMedia(type, btn) {
+    }
+function switchMedia(type, btn) {
         const buttons = btn.parentElement.querySelectorAll('.yr-btn');
         buttons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
@@ -578,9 +574,8 @@ function handleSend(btn){
         } else {
             document.getElementById('media-images').style.display = 'grid';
         }
-    } // <--- Phải có dấu này để kết thúc hàm switchMedia
-
-    const PAGES = ['home','about','members','news','video','contact'];
+    }
+const PAGES = ['home','about','members','news','video','contact'];
 </script>
 </body>
 </html>
