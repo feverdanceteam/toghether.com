@@ -418,7 +418,7 @@ textarea.f-inp{resize:vertical;min-height:80px;}
 
   <div class="phanku-section">
     <div class="phanku-label">Hệ sinh thái</div>
-    <div class="phanku-title">Phân Khu Phụ Trợ</div>
+    <div class="phanku-title">Phân Khu</div>
     <div class="phanku-list">
 
       <!-- Row 1: FE.VER — dùng logo thật, height 40px -->
@@ -537,7 +537,7 @@ textarea.f-inp{resize:vertical;min-height:80px;}
         <button class="yr-btn" onclick="switchMedia('images', this)">Hình Ảnh Hoạt Động</button>
     </div>
 
-    <div id="media-video" class="media-content">
+    <div id="media-video" class="media-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; padding: 0 40px 40px;">
         <a href="https://youtube.com/..." target="_blank" class="video-link-card">
             <div class="play-icon">▶</div>
             <div>
@@ -554,17 +554,43 @@ textarea.f-inp{resize:vertical;min-height:80px;}
         </a>
     </div>
 
-    <div id="media-images" class="media-content" style="display: none;">
-    <div class="image-item">
-        <img src="p4.jpg" onclick="openLightbox(this.src)">
-    </div>
-    <div class="image-item">
-        <img src="p7.jpg" onclick="openLightbox(this.src)">
-    </div>
-    <div class="image-item">
-        <img src="p12.jpg" onclick="openLightbox(this.src)">
-    </div>
-    </div>
+    <style>
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 15px;
+            padding: 0 40px 40px;
+        }
+        .masonry-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-col);
+            background: var(--bg-mid);
+            break-inside: avoid; /* Không cho ảnh bị cắt đôi khi chuyển cột */
+            transition: 0.3s;
+        }
+        .masonry-item img {
+            width: 100%;
+            height: auto; /* Giữ nguyên tỷ lệ ảnh gốc */
+            display: block;
+            cursor: pointer;
+        }
+        .masonry-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--p2);
+        }
+        @media (max-width: 992px) { .masonry-grid { column-count: 2; } }
+        @media (max-width: 600px) { .masonry-grid { column-count: 1; padding: 0 20px 40px; } }
+    </style>
+
+    <div id="media-images" class="masonry-grid" style="display: none;">
+        <div class="masonry-item"><img src="p4.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="masonry-item"><img src="p7.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="masonry-item"><img src="p12.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="masonry-item"><img src="p10.jpg" onclick="openLightbox(this.src)"></div>
+        </div>
 </div>
 
 <div class="section" id="sec-contact">
@@ -572,134 +598,74 @@ textarea.f-inp{resize:vertical;min-height:80px;}
     <div class="contact-wrap">
         <div class="contact-info">
             <div class="contact-h">Tìm chúng mình ở đây</div>
-            <div class="c-line">
-                <div class="c-icon">🏫</div>
-                <div class="c-detail"><strong>Thuộc về</strong>FE.VER DANCE TEAM<br>Trường Đại học Thủ Dầu Một (TDMU)</div>
-            </div>
-            <div class="c-line">
-                <div class="c-icon">🎨</div>
-                <div class="c-detail"><strong>Design & Visual</strong>JKT STUDIO — Hai Trong Labels<br>Phạm Duy · Phượng Nguyễn · @jackytoan_247</div>
-            </div>
+            <div class="c-line"><div class="c-icon">🏫</div><div class="c-detail"><strong>Thuộc về</strong>FE.VER DANCE TEAM<br>Trường Đại học Thủ Dầu Một (TDMU)</div></div>
             <div class="social-section">
                 <div class="social-section-title">Mạng xã hội & Liên kết</div>
                 <div class="social-grid">
-                    <a class="social-link" href="https://www.facebook.com/feverdanceteam.cnvh" target="_blank">
-                        <div class="social-link-icon" style="background:rgba(24,119,242,0.15);border:1px solid rgba(24,119,242,0.3)">📘</div>
-                        <div class="social-link-info"><span class="social-link-name">Facebook</span><span class="social-link-handle">feverdanceteam.cnvh</span></div>
-                        <span class="social-link-arrow">↗</span>
-                    </a>
-                    <a class="social-link linktree" href="https://linktr.ee/feverdanceteameverything" target="_blank">
-                        <div class="social-link-icon" style="background:rgba(0,230,139,0.1);border:1px solid rgba(0,230,139,0.3)">🌿</div>
-                        <div class="social-link-info"><span class="social-link-name">Linktree</span><span class="social-link-handle">feverdanceteameverything</span></div>
-                        <span class="social-link-arrow">↗</span>
-                    </a>
-                    <a class="social-link" href="https://www.youtube.com/@feverdanceteam" target="_blank">
-                        <div class="social-link-icon" style="background:rgba(255,0,0,0.12);border:1px solid rgba(255,0,0,0.25)">▶️</div>
-                        <div class="social-link-info"><span class="social-link-name">YouTube</span><span class="social-link-handle">@feverdanceteam</span></div>
-                        <span class="social-link-arrow">↗</span>
-                    </a>
-                    <a class="social-link" href="https://www.tiktok.com/@feverdanceteam" target="_blank">
-                        <div class="social-link-icon" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15)">🎵</div>
-                        <div class="social-link-info"><span class="social-link-name">TikTok</span><span class="social-link-handle">@feverdanceteam</span></div>
-                        <span class="social-link-arrow">↗</span>
-                    </a>
+                    <a class="social-link" href="https://www.facebook.com/feverdanceteam.cnvh" target="_blank">Facebook</a>
+                    <a class="social-link" href="https://www.youtube.com/@feverdanceteam" target="_blank">YouTube</a>
                 </div>
             </div>
         </div>
         <div class="contact-form-wrap">
             <div class="contact-h">Gửi tin nhắn</div>
             <div class="f-row"><label class="f-lbl">Họ và tên</label><input class="f-inp" type="text" placeholder="Nguyễn Văn A"></div>
-            <div class="f-row"><label class="f-lbl">Email</label><input class="f-inp" type="email" placeholder="feverdanceteameverything@gmail.com"></div>
-            <div class="f-row"><label class="f-lbl">Chủ đề</label><input class="f-inp" type="text" placeholder="Booking / Hợp tác / Audition..."></div>
             <div class="f-row"><label class="f-lbl">Nội dung</label><textarea class="f-inp" placeholder="Nhắn gì cho FE.VER đây..."></textarea></div>
             <button class="btn-send" onclick="handleSend(this)">GỬI TIN NHẮN →</button>
-            <div style="margin-top:14px;padding:10px 14px;background:rgba(155,79,232,0.06);border:1px solid rgba(155,79,232,0.2);border-radius:4px;">
-                <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,238,255,0.3);margin-bottom:4px;">Hoặc email trực tiếp</div>
-                <a href="mailto:feverdanceteameverything@gmail.com" style="font-size:13px;color:var(--p2);text-decoration:none;letter-spacing:0.5px;">feverdanceteameverything@gmail.com</a>
-            </div>
         </div>
     </div>
 </div>
 
 <div class="footer">
-    <img class="footer-logo" src="dvg.png" alt="FE.VER">
-    <div class="footer-right">
-        <div class="footer-copy">© 2025 – 2026 Fe.Ver Dance Team · Festive. Vibrant – Energy – Rhythms</div>
-        <div class="footer-copy">Website by @jackytoan_247 — JKT STUDIO</div>
-    </div>
+    <div class="footer-copy">© 2025 – 2026 Fe.Ver Dance Team · JKT STUDIO</div>
 </div>
 
 <div id="imgModal" style="display:none; position:fixed; z-index:9999; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); align-items:center; justify-content:center; cursor:zoom-out;" onclick="this.style.display='none'">
-    <img id="modalImg" style="max-width:90%; max-height:90%; border:3px solid #fff; border-radius:4px; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
-    <span style="position:absolute; top:20px; right:30px; color:#fff; font-size:40px; font-weight:bold; cursor:pointer;">&times;</span>
+    <img id="modalImg" style="max-width:90%; max-height:90%; border:3px solid #fff; border-radius:4px;">
 </div>
 
 <script>
-const PAGES = ['home', 'about', 'members', 'news', 'video', 'contact'];
+    const PAGES = ['home', 'about', 'members', 'news', 'video', 'contact'];
 
-function showSec(name) {
-    PAGES.forEach(s => {
-        const sec = document.getElementById('sec-' + s);
-        const nav = document.getElementById('nav-' + s);
-        if (sec) {
-            sec.classList.remove('active');
-            sec.style.display = 'none';
+    function showSec(name) {
+        PAGES.forEach(s => {
+            const sec = document.getElementById('sec-' + s);
+            const nav = document.getElementById('nav-' + s);
+            if (sec) { sec.classList.remove('active'); sec.style.display = 'none'; }
+            if (nav) nav.classList.remove('active');
+        });
+        const target = document.getElementById('sec-' + name);
+        if (target) { target.classList.add('active'); target.style.display = 'block'; }
+        const targetNav = document.getElementById('nav-' + name);
+        if (targetNav) targetNav.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function switchMedia(type, btn) {
+        document.querySelectorAll('.year-filter .yr-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const vDiv = document.getElementById('media-video');
+        const iDiv = document.getElementById('media-images');
+        if (type === 'video') {
+            vDiv.style.display = 'grid';
+            iDiv.style.display = 'none';
+        } else {
+            vDiv.style.display = 'none';
+            iDiv.style.display = 'block'; // Dùng block để column-count hoạt động
         }
-        if (nav) nav.classList.remove('active');
-    });
-
-    const target = document.getElementById('sec-' + name);
-    if (target) {
-        target.classList.add('active');
-        target.style.display = 'block';
     }
-    const targetNav = document.getElementById('nav-' + name);
-    if (targetNav) targetNav.classList.add('active');
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function filterYear(year, btn) {
-    document.querySelectorAll('.yr-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.mem-card').forEach(card => {
-        if (year === 'all' || card.dataset.year === year) card.classList.remove('hidden');
-        else card.classList.add('hidden');
-    });
-}
-
-function handleSend(btn) {
-    btn.textContent = 'ĐÃ GỬI! ✓';
-    btn.style.background = 'linear-gradient(90deg,#1a6b1a,#2ea82e)';
-    setTimeout(() => {
-        btn.textContent = 'GỬI TIN NHẮN →';
-        btn.style.background = 'linear-gradient(90deg,var(--p1),var(--o1))';
-    }, 2500);
-}
-
-function switchMedia(type, btn) {
-    const buttons = btn.parentElement.querySelectorAll('.yr-btn');
-    buttons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    
-    const vDiv = document.getElementById('media-video');
-    const iDiv = document.getElementById('media-images');
-    
-    if (type === 'video') {
-        vDiv.style.display = 'grid';
-        iDiv.style.display = 'none';
-    } else {
-        vDiv.style.display = 'none';
-        iDiv.style.display = 'grid';
+    function openLightbox(src) {
+        const modal = document.getElementById('imgModal');
+        const modalImg = document.getElementById('modalImg');
+        modal.style.display = "flex";
+        modalImg.src = src;
     }
-}
 
-function openLightbox(src) {
-    const modal = document.getElementById('imgModal');
-    const modalImg = document.getElementById('modalImg');
-    modal.style.display = "flex";
-    modalImg.src = src;
-}
+    function handleSend(btn) {
+        btn.textContent = 'ĐÃ GỬI! ✓';
+        setTimeout(() => { btn.textContent = 'GỬI TIN NHẮN →'; }, 2500);
+    }
 </script>
 </body>
 </html>
