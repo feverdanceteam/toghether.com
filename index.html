@@ -254,6 +254,75 @@ textarea.f-inp{resize:vertical;min-height:80px;}
   .home-cta-row { flex-direction: column; align-items: center; }
   .cta-btn { width: 100%; max-width: 280px; text-align: center; }
 }
+    /* Media Section Styling */
+.media-content {
+    display: grid;
+    gap: 15px;
+    padding: 0 40px 40px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.video-link-card {
+    background: var(--bg-mid);
+    padding: 24px;
+    border: 1px solid var(--border-col);
+    border-radius: 4px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: 0.2s;
+}
+
+.video-link-card:hover {
+    background: #1c1035;
+    border-color: var(--p2);
+}
+
+.play-icon {
+    font-size: 24px;
+    background: rgba(255,0,0,0.1);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #ff0000;
+    flex-shrink: 0;
+}
+
+.video-card-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 4px;
+}
+
+.video-card-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.image-placeholder {
+    background: var(--bg-mid);
+    height: 200px;
+    border-radius: 4px;
+    border: 1px solid var(--border-col);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Fix cho điện thoại (màn hình nhỏ) */
+@media (max-width: 768px) {
+    .media-content {
+        padding: 0 20px 40px;
+        grid-template-columns: 1fr; /* Luôn 1 cột trên mobile */
+    }
+}
 </style>
 
 <div id="fv-root">
@@ -442,33 +511,27 @@ textarea.f-inp{resize:vertical;min-height:80px;}
         <button class="yr-btn" onclick="switchMedia('images', this)">Hình Ảnh Hoạt Động</button>
     </div>
 
-    <div id="media-video" class="media-content" style="display: grid; gap: 15px; padding: 0 40px 40px;">
-        <a href="https://youtube.com/..." target="_blank" style="background: var(--bg-mid); padding: 24px; border: 1px solid var(--border-col); border-radius: 4px; text-decoration: none; display: flex; align-items: center; gap: 16px; transition: 0.2s;">
-            <div style="font-size: 24px; background: rgba(255,0,0,0.1); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #ff0000;">▶</div>
+    <div id="media-video" class="media-content">
+        <a href="https://youtube.com/..." target="_blank" class="video-link-card">
+            <div class="play-icon">▶</div>
             <div>
-                <div style="font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; color: var(--text-main); margin-bottom: 4px;">Video Trình Diễn: Nam Quốc Sơn Hà</div>
-                <div style="font-size: 13px; color: var(--text-muted);">Xem trên YouTube</div>
+                <div class="video-card-title">Video Trình Diễn: Nam Quốc Sơn Hà</div>
+                <div class="video-card-sub">Xem trên YouTube</div>
             </div>
         </a>
-        <a href="https://youtube.com/..." target="_blank" style="background: var(--bg-mid); padding: 24px; border: 1px solid var(--border-col); border-radius: 4px; text-decoration: none; display: flex; align-items: center; gap: 16px; transition: 0.2s;">
-            <div style="font-size: 24px; background: rgba(255,0,0,0.1); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: #ff0000;">▶</div>
+        <a href="https://youtube.com/..." target="_blank" class="video-link-card">
+            <div class="play-icon">▶</div>
             <div>
-                <div style="font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; color: var(--text-main); margin-bottom: 4px;">Video Dance Cover: Move It Up 2025</div>
-                <div style="font-size: 13px; color: var(--text-muted);">Xem trên YouTube</div>
+                <div class="video-card-title">Video Dance Cover: Move It Up 2025</div>
+                <div class="video-card-sub">Xem trên YouTube</div>
             </div>
         </a>
     </div>
 
-    <div id="media-images" class="media-content" style="display: none; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; padding: 0 40px 40px;">
-        <div style="background: var(--bg-mid); height: 200px; border-radius: 4px; border: 1px solid var(--border-col); display: flex; align-items: center; justify-content: center; overflow: hidden;">
-            <span style="color: var(--text-muted); font-size: 13px;">[Ảnh 1]</span>
-            </div>
-        <div style="background: var(--bg-mid); height: 200px; border-radius: 4px; border: 1px solid var(--border-col); display: flex; align-items: center; justify-content: center; overflow: hidden;">
-            <span style="color: var(--text-muted); font-size: 13px;">[Ảnh 2]</span>
-            </div>
-        <div style="background: var(--bg-mid); height: 200px; border-radius: 4px; border: 1px solid var(--border-col); display: flex; align-items: center; justify-content: center; overflow: hidden;">
-            <span style="color: var(--text-muted); font-size: 13px;">[Ảnh 3]</span>
-            </div>
+    <div id="media-images" class="media-content" style="display: none;">
+        <div class="image-placeholder"><span>[Ảnh 1]</span></div>
+        <div class="image-placeholder"><span>[Ảnh 2]</span></div>
+        <div class="image-placeholder"><span>[Ảnh 3]</span></div>
     </div>
 </div>
 <!-- ═══ CONTACT ═══ -->
