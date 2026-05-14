@@ -559,28 +559,26 @@ function filterYear(year,btn){
 function handleSend(btn){
         btn.textContent='ĐÃ GỬI! ✓';
         btn.style.background='linear-gradient(90deg,#1a6b1a,#2ea82e)';
-        setTimeout(()=>{btn.textContent='GỬI TIN NHẮN →';btn.style.background='linear-gradient(90deg,var(--p1),var(--o1))';},2500);
-    }
+        setTimeout(()=>{
+            btn.textContent='GỬI TIN NHẮN →';
+            btn.style.background='linear-gradient(90deg,var(--p1),var(--o1))';
+        }, 2500);
+    } // <--- Phải có dấu này để kết thúc hàm gửi tin
 
-    // --- DÁN HÀM SWITCHMEDIA VÀO ĐÂY ---
     function switchMedia(type, btn) {
-        // Đổi màu nút bấm
         const buttons = btn.parentElement.querySelectorAll('.yr-btn');
         buttons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
-        // Ẩn tất cả nội dung media
         document.getElementById('media-video').style.display = 'none';
         document.getElementById('media-images').style.display = 'none';
 
-        // Hiện nội dung tương ứng
         if (type === 'video') {
             document.getElementById('media-video').style.display = 'grid';
         } else {
             document.getElementById('media-images').style.display = 'grid';
         }
-    }
-    // -----------------------------------
+    } // <--- Phải có dấu này để kết thúc hàm switchMedia
 
     const PAGES = ['home','about','members','news','video','contact'];
 </script>
