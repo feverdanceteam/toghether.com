@@ -256,10 +256,11 @@ textarea.f-inp{resize:vertical;min-height:80px;}
 }
     /* Media Section Styling */
 .media-content {
+    media-images {
     display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 15px;
-    padding: 0 40px 40px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 20px 40px;
 }
 
 .video-link-card {
@@ -529,9 +530,14 @@ textarea.f-inp{resize:vertical;min-height:80px;}
     </div>
 
     <div id="media-images" class="media-content" style="display: none;">
-        <div class="image-placeholder"><span><img class="phanku-logo-img" src="p6.jpg"></span></div>
-        <div class="image-placeholder"><span><img class="phanku-logo-img" src="p2.jpg"></span></div>
-        <div class="image-placeholder"><span><img class="phanku-logo-img" src="p12.jpg"></span></div>
+    <div class="image-placeholder">
+        <img src="p4.jpg" onclick="openLightbox(this.src)" style="cursor:pointer; width:100%; height:100%; object-fit:cover;">
+    </div>
+    <div class="image-placeholder">
+        <img src="p7.jpg" onclick="openLightbox(this.src)" style="cursor:pointer; width:100%; height:100%; object-fit:cover;">
+    </div>
+    <div class="image-placeholder">
+        <img src="p12.jpg" onclick="openLightbox(this.src)" style="cursor:pointer; width:100%; height:100%; object-fit:cover;">
     </div>
 </div>
 <!-- ═══ CONTACT ═══ -->
@@ -638,6 +644,16 @@ function switchMedia(type, btn) {
             document.getElementById('media-images').style.display = 'grid';
         }
     }
+function openLightbox(src) {
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    modal.style.display = "flex";
+    modalImg.src = src;
+}
 </script>
+<div id="imgModal" style="display:none; position:fixed; z-index:9999; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); align-items:center; justify-content:center; cursor:zoom-out;" onclick="this.style.display='none'">
+    <img id="modalImg" style="max-width:90%; max-height:90%; border:3px solid #fff; border-radius:4px; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+    <span style="position:absolute; top:20px; right:30px; color:#fff; font-size:40px; font-weight:bold; cursor:pointer;">&times;</span>
+</div>
 </body>
 </html>
