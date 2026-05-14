@@ -255,12 +255,9 @@ textarea.f-inp{resize:vertical;min-height:80px;}
   .cta-btn { width: 100%; max-width: 280px; text-align: center; }
 }
     /* Media Section Styling */
+/* Media Section Styling */
 .media-content {
-    #media-images {
-    display: block; /* Chuyển từ grid sang block */
-    column-count: 3; /* Chia làm 3 cột trên máy tính */
-    column-gap: 15px;
-    padding: 20px 40px;
+    padding: 0 40px 40px;
 }
 
 .video-link-card {
@@ -273,6 +270,7 @@ textarea.f-inp{resize:vertical;min-height:80px;}
     align-items: center;
     gap: 16px;
     transition: 0.2s;
+    margin-bottom: 10px;
 }
 
 .video-link-card:hover {
@@ -353,6 +351,14 @@ textarea.f-inp{resize:vertical;min-height:80px;}
         padding: 0 20px 40px;
         grid-template-columns: 1fr; /* Luôn 1 cột trên mobile */
     }
+}
+/* Fix hiển thị Masonry Pinterest trên Mobile */
+@media (max-width: 768px) {
+    .masonry-grid { column-count: 2 !important; padding: 0 20px 40px !important; }
+}
+
+@media (max-width: 480px) {
+    .masonry-grid { column-count: 1 !important; }
 }
 </style>
 
