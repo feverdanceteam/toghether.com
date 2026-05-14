@@ -558,16 +558,23 @@ textarea.f-inp{resize:vertical;min-height:80px;}
             </div>
         </a>
     </div>
+<style>
+        .masonry-grid { column-count: 3; column-gap: 15px; padding: 0 40px 40px; }
+        .masonry-item { display: inline-block; width: 100%; margin-bottom: 15px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-col); background: var(--bg-mid); break-inside: avoid; transition: 0.3s; }
+        .masonry-item img { width: 100%; height: auto; display: block; cursor: pointer; }
+        .masonry-item:hover { transform: translateY(-5px); border-color: var(--p2); }
+        @media (max-width: 992px) { .masonry-grid { column-count: 2; } }
+        @media (max-width: 600px) { .masonry-grid { column-count: 1; padding: 0 20px 40px; } }
+</style>
 
     <div id="media-images" class="masonry-grid" style="display: none;">
         <div class="masonry-item"><img src="p4.jpg" onclick="openLightbox(this.src)"></div>
         <div class="masonry-item"><img src="p7.jpg" onclick="openLightbox(this.src)"></div>
         <div class="masonry-item"><img src="p12.jpg" onclick="openLightbox(this.src)"></div>
         <div class="masonry-item"><img src="p10.jpg" onclick="openLightbox(this.src)"></div>
-        </div>
     </div>
 
-<div class="section" id="sec-contact">
+</div> <div class="section" id="sec-contact">
     <div class="sec-header"><div class="sec-label">Get In Touch</div><div class="sec-title">Contact Us</div></div>
     <div class="contact-wrap">
         <div class="contact-info">
